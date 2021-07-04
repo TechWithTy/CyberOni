@@ -32,7 +32,7 @@ export default function MyApp({ Component, pageProps }) {
         {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
         <script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-0PC8G90G58"
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
         ></script>
         <script
           dangerouslySetInnerHTML={{
@@ -40,7 +40,7 @@ export default function MyApp({ Component, pageProps }) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-0PC8G90G58', {
+            gtag('config', ${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}, {
               page_path: window.location.pathname,
             });
           `,
