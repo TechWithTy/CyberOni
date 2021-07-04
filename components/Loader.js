@@ -15,6 +15,7 @@ function Loader() {
         <a.div className="loading" style={{ opacity }}>
           <div className="loading-bar-container">
             <a.div className="loading-bar" style={{ width: progress }}></a.div>
+            <span className="loading-text">Loading Animations...</span>
           </div>
         </a.div>
       )
