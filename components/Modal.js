@@ -85,12 +85,12 @@ function ContactModal({ modalOpen, setModalState, toast, ToastContainer }) {
       }
     }
   };
-  const sendFacebookClicked = () => {
-    ga.event({
-      event_label: 'facebook_clicked',
-      action: 'generate_lead',
-    });
-  };
+  // const sendFacebookClicked = () => {
+  //   ga.event({
+  //     event_label: 'facebook_clicked',
+  //     action: 'generate_lead',
+  //   });
+  // };
   useEffect(() => {}, [nameError]);
   return (
     <div>
@@ -112,7 +112,7 @@ function ContactModal({ modalOpen, setModalState, toast, ToastContainer }) {
           className="facebook-button"
           onClick={() => {
             window.open('https://www.facebook.com/YourCyberOni/', '_blank');
-            sendFacebookClicked();
+            // sendFacebookClicked();
           }}
         >
           {' '}
