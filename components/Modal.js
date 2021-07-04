@@ -1,10 +1,11 @@
 import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import dynamic from 'next/dynamic';
 import emailjs from 'emailjs-com';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Modal from 'react-modal';
+import * as ga from '../lib/ga';
+
 import {
   emailValidation,
   messageValidation,
@@ -70,7 +71,7 @@ function ContactModal({ modalOpen, setModalState, toast, ToastContainer }) {
           number: data.phoneNumber,
           message: data.message,
         };
-        console.log(emailjs)
+        console.log(emailjs);
         console.warn(process.env.USER_ID);
         await emailjs.send(
           process.env.SERVICE_ID,
@@ -85,7 +86,12 @@ function ContactModal({ modalOpen, setModalState, toast, ToastContainer }) {
       }
     }
   };
-
+  const sendFacebookClicked = () => {
+    ga.event({
+      event_label: 'facebook_clicked',
+      action: 'generate_lead',
+    });
+  };
   useEffect(() => {}, [nameError]);
   return (
     <div>
@@ -107,6 +113,7 @@ function ContactModal({ modalOpen, setModalState, toast, ToastContainer }) {
           className="facebook-button"
           onClick={() => {
             window.open('https://www.facebook.com/YourCyberOni/', '_blank');
+            sendFacebookClicked();
           }}
         >
           {' '}

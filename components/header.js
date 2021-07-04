@@ -13,6 +13,7 @@ export default function Header({ toast, ToastContainer }) {
 
   const sendContactClicked = () => {
     ga.event({
+      event_label: 'contact_form',
       action: 'generate_lead',
     });
   };
