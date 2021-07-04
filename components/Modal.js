@@ -72,12 +72,12 @@ function ContactModal({ modalOpen, setModalState, toast, ToastContainer }) {
           message: data.message,
         };
         console.log(emailjs);
-        console.warn(process.env.USER_ID);
+        console.warn(process.env.customKey);
         await emailjs.send(
-          process.env.SERVICE_ID,
-          process.env.TEMPLATE_ID,
+          process.env.NEXT_PUBLIC_SERVICE_ID,
+          process.env.NEXT_PUBLIC_TEMPLATE_ID,
           templateParams,
-          process.env.USER_ID
+          process.env.NEXT_PUBLIC_USER_ID
         );
         reset();
         toastifySuccess();
