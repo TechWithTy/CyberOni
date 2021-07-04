@@ -1,19 +1,30 @@
-import React,{useState} from "react";
-import { ToastContainer } from "react-toastify";
-import ContactModal from "./Modal";
-import Image from 'next/image'
-import logo from '../public/transparentLogo.png'
- 
-export default function Header({toast, ToastContainer}) {
-   const [modalOpen, setModalOpen] = useState(false);
+import Image from 'next/image';
+import React, { useState } from 'react';
+import * as ga from '../lib/ga';
+import logo from '../public/transparentLogo.png';
+import ContactModal from './Modal';
 
-   const setModalState = () => {
-     setModalOpen(!modalOpen);
-   };
+export default function Header({ toast, ToastContainer }) {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const setModalState = () => {
+    setModalOpen(!modalOpen);
+  };
+
+  const sendContactClicked = () => {
+    ga.event({
+      action: 'generate_lead',
+    });
+  };
   return (
     <header>
       <div className="header-inner">
-        <Image src={logo} alt="Picture of the author" width={150} height={150} />
+        <Image
+          src={logo}
+          alt="Picture of the author"
+          width={150}
+          height={150}
+        />
         <nav>
           <ul>
             <ContactModal
@@ -27,6 +38,7 @@ export default function Header({toast, ToastContainer}) {
                 id="contact-us"
                 onClick={() => {
                   setModalState();
+                  sendContactClicked();
                 }}
               >
                 Contact Us
