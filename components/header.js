@@ -11,12 +11,12 @@ export default function Header({ toast, ToastContainer }) {
     setModalOpen(!modalOpen);
   };
 
-  // const sendContactClicked = () => {
-  //   ga.event({
-  //     event_label: 'contact_form',
-  //     action: 'generate_lead',
-  //   });
-  // };
+  const sendContactClicked = () => {
+    ga.event({
+      event_label: 'contact_form',
+      action: 'generate_lead',
+    });
+  };
   return (
     <header>
       <div className="header-inner">
@@ -39,7 +39,7 @@ export default function Header({ toast, ToastContainer }) {
                 id="contact-us"
                 onClick={() => {
                   setModalState();
-                  // sendContactClicked();
+                  sendContactClicked();
                 }}
               >
                 Contact Us
