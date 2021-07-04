@@ -1,7 +1,7 @@
 // import '../app.css'
+import Head from 'next/head';
 import 'react-toastify/dist/ReactToastify.min.css';
-import '../styles/App.scss'
-import Head from 'next/head'
+import '../styles/App.scss';
 
 export default function MyApp({ Component, pageProps }) {
   return (
@@ -11,6 +11,8 @@ export default function MyApp({ Component, pageProps }) {
         <title>CyberOni</title>
         <meta charSet="utf-8" />
         <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="title"
