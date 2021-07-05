@@ -426,6 +426,20 @@ blockquote {
     font-size: 0.6em;
     margin-bottom: 0;
   }
+  .facebook-button {
+  
+    top: 2em !important;
+    left: 0;
+
+}
+p.error {
+    color: #bf1650;
+    margin: 0 !important;
+}
+input, textarea,label{
+  margin-bottom: 0 !important;
+}
+
   .ReactModal__Content.ReactModal__Content--after-open {
     width: 100% !important;
   }
