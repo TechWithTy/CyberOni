@@ -422,6 +422,10 @@ blockquote {
   li.services {
     margin: 0.2em 0.2em;
   }
+   blockquote {
+    font-size: 0.6em;
+    margin-bottom: 0;
+  }
   .ReactModal__Content.ReactModal__Content--after-open {
     width: 100% !important;
   }

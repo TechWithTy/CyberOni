@@ -2,7 +2,6 @@ import React, { Suspense, useRef, useState,useEffect } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
 import { ToastContainer, toast } from 'react-toastify';
 import { initialQuote, servicesAvailable } from '../lib/services';
-
 import Content from '../components/Content';
 import Header from '../components/header';
 import Lights from '../components/Lights';
