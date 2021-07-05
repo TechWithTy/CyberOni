@@ -7,6 +7,8 @@ import Header from '../components/header';
 import Lights from '../components/Lights';
 import Loader from '../components/Loader';
 
+
+
 const removeSpaces = (string) => {
   let returnString = '';
   returnString = string.split(' ').join('');
@@ -24,7 +26,9 @@ const Home = () => {
     console.log(returnString);
     return returnString.toLowerCase();
   };
-  return(
+
+
+  return (
     <>
       <Header toast={toast} ToastContainer={ToastContainer} />
       <Canvas
@@ -107,7 +111,9 @@ const Home = () => {
               bgColor="#e96bec"
               modelPath="/robot.gltf"
               groupPositionY={250}
-              meshPosition={[45, -15, 50]}
+              meshPosition={
+                window.innerWidth > 400 ? [45, -15, 50] : [0, -10, 50]
+              }
               description={activeServiceDescription}
               activeService={activeService}
               status={0}
@@ -137,7 +143,7 @@ const Home = () => {
 
       <Loader />
     </>
-  )
+  );
 }
 
 export default Home
