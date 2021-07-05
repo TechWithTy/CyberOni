@@ -79,6 +79,7 @@ function ContactModal({ modalOpen, setModalState, toast, ToastContainer }) {
           process.env.NEXT_PUBLIC_USER_ID
         );
         reset();
+        setModalState();
         toastifySuccess();
       } catch (e) {
         console.log(e);
