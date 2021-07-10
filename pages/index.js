@@ -50,6 +50,7 @@ const Home = () => {
               description={activeServiceDescription}
               activeService={activeService}
               status={0}
+              rotate={true}
             >
               {servicesAvailable.map((service, id) => (
                 <div
@@ -83,6 +84,7 @@ const Home = () => {
               description={activeServiceDescription}
               activeService={activeService}
               status={1}
+              rotate={true}
             >
               {servicesAvailable.map((service, id) => (
                 <div
@@ -117,6 +119,7 @@ const Home = () => {
               description={activeServiceDescription}
               activeService={activeService}
               status={0}
+              rotate={false}
             >
               {servicesAvailable.map((service, id) => (
                 <div

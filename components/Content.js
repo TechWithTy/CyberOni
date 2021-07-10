@@ -1,10 +1,10 @@
 import { Html } from '@react-three/drei';
-import React, { useEffect, useRef,useState } from 'react';
 import { useFrame, useLoader } from '@react-three/fiber';
+import React, { useEffect, useRef, useState } from 'react';
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import Model from './Model';
 import { Section } from './section';
-import {  GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import * as THREE from 'three';
 
 const Content = ({
   domContent,
@@ -15,27 +15,30 @@ const Content = ({
   meshPosition,
   description,
   activeService,
-  status
+  status,
+  rotate,
 }) => {
   // let GLTFLoader = require('three/examples/jsm/loaders/GLTFLoader');
-  const { animations } = useLoader(GLTFLoader, modelPath)
-  const [mixer] = useState(() => new THREE.AnimationMixer())
+  const { animations } = useLoader(GLTFLoader, modelPath);
+  const [mixer] = useState(() => new THREE.AnimationMixer());
   const ref = useRef();
-  const group = useRef()
+  const group = useRef();
 
   useFrame((scene, delta) => {
-      mixer.update(delta)
-      group.current.rotation.y += 0.01
-  })
+    mixer.update(delta);
+
+    if (rotate) {
+      group.current.rotation.y += 0.01;
+    }
+  });
 
   useEffect(() => {
     document.body.style.background = bgColor;
-    if(status===0){
-      ref.current = { idle: mixer.clipAction(animations[0], group.current) }
-      ref.current.idle.play()
+    if (status === 0) {
+      ref.current = { idle: mixer.clipAction(animations[0], group.current) };
+      ref.current.idle.play();
     }
   }, [bgColor, description]);
-
 
   return (
     <Section factor={1.5} offset={1}>
